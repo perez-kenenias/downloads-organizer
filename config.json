@@ -1,0 +1,141 @@
+{
+  "source_folder": "C:/Users/UserOne/Downloads",
+  "target_base_folder": "C:/Users/UserOne/Downloads/Organized",
+  "categories": {
+    "Libros": {
+      "extensions": [".pdf", ".epub", ".mobi", ".azw3", ".djvu", ".fb2", ".cbz", ".cbr"],
+      "keywords": ["libro", "book", "ebook", "novela", "autor", "editorial", "capitulo", "chapter", "bestseller", "saga", "trilogia", "sherlock", "asimov", "orwell", "murakami", "rowling", "tolkien", "martin", "sanderson", "brandon", "graham", "dostoyevski", "kafka", "borges", "garcia marquez", "mario vargas", "isabel allende", "paulo coelho", "stephen king", "dan brown", "agatha christie", "oscar wilde", "hemingway", "fitzgerald"],
+      "mime_types": ["application/pdf", "application/epub+zip", "application/x-mobipocket-ebook"],
+      "subcategories": {
+        "Programacion": ["programming", "python", "javascript", "java", "golang", "rust", "coding", "desarrollo", "developer", "clean code", "algorithms", "data structures", "machine learning", "deep learning", "react", "angular", "vue", "node", "django", "flask", "spring", "docker", "kubernetes"],
+        "Negocios": ["negocio", "business", "marketing", "finanzas", "emprendimiento", "ventas", "startup", "lean", "agile", "scrum", "project management", "liderazgo", "leadership", "rich dad", "kawasaki", "peter thiel", "eric ries", "tony robbins", "dale carnegie"],
+        "Ficcion": ["novela", "ficcion", "fantasia", "ciencia ficcion", "thriller", "romance", "misterio", "horror", "aventura", "drama", "historica", "policiaca", "suspense"],
+        "Autoayuda": ["autoayuda", "productividad", "habitos", "motivacion", "crecimiento personal", "mindfulness", "meditacion", "psicologia", "coaching", "atomic habits", "power of now", "subtle art", "ikigai", "man search"],
+        "Educacion": ["textbook", "manual", "guia", "guide", "curso", "aprende", "tutorial", "academia", "universidad", "escuela", "exam", "examen", "certificacion"]
+      }
+    },
+    "Trabajo": {
+      "extensions": [".docx", ".doc", ".xlsx", ".xls", ".pptx", ".ppt", ".odt", ".ods", ".odp", ".rtf"],
+      "keywords": ["reporte", "report", "reunion", "meeting", "proyecto", "project", "cliente", "client", "propuesta", "proposal", "cotizacion", "invoice", "factura", "presentacion", "presentation", "brief", "scope", "contrato", "contract", "nda", "memo", "acta", "minuta", "agenda", "plan", "estrategia", "analisis", "kpis", "metricas", "dashboard", "presupuesto", "budget"],
+      "mime_types": ["application/vnd.openxmlformats-officedocument", "application/msword", "application/vnd.ms-excel"],
+      "subcategories": {
+        "Contratos": ["contrato", "contract", "agreement", "convenio", "terminos", "terms", "condiciones"],
+        "Facturas": ["factura", "invoice", "recibo", "payment", "comprobante de pago", "cfdi"],
+        "Presentaciones": ["presentacion", "presentation", "pitch", "slide", "powerpoint"],
+        "Reportes": ["reporte", "report", "analisis", "analysis", "estudio", "study", "research"]
+      }
+    },
+    "Infonavit": {
+      "extensions": [".pdf", ".docx", ".xlsx", ".jpg", ".jpeg", ".png"],
+      "keywords": ["infonavit", "credito", "hipotecario", "cofinavit", "puntos", "subcuenta", "retiro", "vivienda", "avaluo", "notaria", "escrituras", "fovissste", "solicitud", "prestamo", "hipoteca", "carta de autorizacion", "estado de cuenta infonavit", "historial crediticio", "cierre de credito", "liquidacion", "descuento", "aportacion"],
+      "mime_types": [],
+      "subcategories": {
+        "Documentos_Oficiales": ["carta", "oficio", "resolucion", "dictamen", "certificado"],
+        "Estados_de_Cuenta": ["estado de cuenta", "historial", "movimientos", "saldos"],
+        "Solicitudes": ["solicitud", "tramite", "constancia", "avaluo"]
+      }
+    },
+    "Documentos_Personales": {
+      "extensions": [".pdf", ".jpg", ".jpeg", ".png", ".docx", ".tiff"],
+      "keywords": ["ine", "curp", "rfc", "pasaporte", "licencia", "acta", "nacimiento", "constancia", "comprobante", "domicilio", "recibo", "nomina", "estado de cuenta", "banco", "factura personal", "receta medica", "analisis", "laboratorio", "seguro", "imss", "nss", "cartilla", "militar", "credencial", "identificacion", "visa", "green card", "titulo", "cedula", "diploma", "certificado escolar", "boleta", "calificaciones", "recibo luz", "recibo agua", "recibo gas", "telefono", "internet", "tenencia", "placas", "tarjeta de circulacion", "seguro social", "afore", "retiro"],
+      "mime_types": [],
+      "subcategories": {
+        "Identificacion": ["ine", "curp", "rfc", "pasaporte", "licencia", "credencial", "identificacion", "visa"],
+        "Salud": ["receta", "analisis", "laboratorio", "estudio medico", "radiografia", "receta medica", "orden medica"],
+        "Servicios": ["recibo luz", "recibo agua", "recibo gas", "telefono", "internet", "tenencia"],
+        "Bancarios": ["estado de cuenta", "banco", "deposito", "transferencia", "spei"],
+        "Escolares": ["titulo", "cedula", "diploma", "certificado", "boleta", "calificaciones", "constancia de estudios"]
+      }
+    },
+    "Software": {
+      "extensions": [".exe", ".msi", ".dmg", ".pkg", ".deb", ".rpm", ".appimage", ".jar", ".zip", ".tar.gz", ".tgz", ".bz2", ".7z", ".rar", ".iso", ".img"],
+      "keywords": ["setup", "installer", "install", "portable", "software", "programa", "app", "application", "driver", "controlador", "update", "patch", "version", "build", "release", "beta", "alpha", "stable", "sdk", "runtime", "framework", "library", "plugin", "extension", "addon"],
+      "mime_types": ["application/x-msdownload", "application/x-executable", "application/x-apple-diskimage"],
+      "subcategories": {
+        "Sistemas_Operativos": ["windows", "linux", "ubuntu", "debian", "fedora", "arch", "manjaro", "mint", "iso", "macos", "ios", "android"],
+        "Desarrollo": ["visual studio", "vscode", "intellij", "pycharm", "eclipse", "android studio", "xcode", "git", "github", "docker", "nodejs", "python", "jdk", "sdk"],
+        "Oficina": ["office", "libreoffice", "adobe acrobat", "foxit", "sumatra"],
+        "Multimedia": ["vlc", "media player", "spotify", "itunes", "obs", "streamlabs", "ffmpeg", "handbrake"],
+        "Seguridad": ["antivirus", "vpn", "firewall", "malwarebytes", "nordvpn", "expressvpn", "proton"],
+        "Utilidades": ["winrar", "7zip", "peazip", "ccleaner", "treesize", "everything", "powershell", "terminal", "putty", "winscp", "filezilla"]
+      }
+    },
+    "Multimedia": {
+      "extensions": [".mp4", ".avi", ".mkv", ".mov", ".wmv", ".flv", ".webm", ".mp3", ".wav", ".flac", ".aac", ".ogg", ".wma", ".m4a", ".m4v", ".3gp"],
+      "keywords": ["video", "audio", "musica", "movie", "pelicula", "cancion", "song", "album", "podcast", "tutorial", "curso", "serie", "temporada", "episode", "episodio", "documental", "concierto", "live", "performance", "soundtrack", "bso", "ost"],
+      "mime_types": ["video/", "audio/"],
+      "subcategories": {
+        "Peliculas": ["pelicula", "movie", "film", "cinema", "hdtv", "bluray", "dvdrip", "webdl", "4k", "1080p", "720p"],
+        "Series": ["serie", "season", "temporada", "episode", "episodio", "tv show", "netflix", "hbo", "disney", "prime"],
+        "Musica": ["musica", "music", "album", "single", "ep", "compilation", "mixtape", "playlist", "remix", "cover", "live album"],
+        "Cursos_Video": ["curso", "tutorial", "course", "lesson", "clase", "masterclass", "workshop", "seminario", "webinar"],
+        "Podcasts": ["podcast", "episode", "show", "radio", "interview", "entrevista"]
+      }
+    },
+    "Imagenes": {
+      "extensions": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg", ".webp", ".ico", ".psd", ".ai", ".sketch", ".fig", ".raw", ".cr2", ".nef", ".dng", ".heic", ".heif", ".tiff", ".tif"],
+      "keywords": ["imagen", "image", "foto", "photo", "screenshot", "captura", "wallpaper", "fondo", "icono", "logo", "diseno", "design", "banner", "mockup", "wireframe", "prototype", "avatar", "profile", "picture", "meme", "diagrama", "grafica", "chart", "infografia"],
+      "mime_types": ["image/"],
+      "subcategories": {
+        "Screenshots": ["screenshot", "captura", "screencapture", "snip", "screen"],
+        "Fotos": ["foto", "photo", "pic", "image", "img", "camara", "camera", "whatsapp image"],
+        "Diseño": ["design", "diseno", "logo", "banner", "mockup", "wireframe", "prototype", "ui", "ux", "interface"],
+        "Wallpapers": ["wallpaper", "fondo", "background", "desktop", "pantalla"]
+      }
+    },
+    "Comprimidos": {
+      "extensions": [".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".xz", ".lz", ".zst"],
+      "keywords": ["compressed", "compressed file", "backup", "respaldo", "archive", "compressed data"],
+      "mime_types": ["application/zip", "application/x-rar", "application/x-7z-compressed"],
+      "subcategories": {}
+    },
+    "Estudio_PM": {
+      "extensions": [".pdf", ".docx", ".xlsx", ".pptx", ".epub", ".mobi", ".mp4", ".mp3", ".zip"],
+      "keywords": ["project management", "gestion de proyectos", "gestion proyectos", "pm", "pmp", "prince2", "pmbok", "agile", "scrum", "kanban", "lean", "roadmap", "cronograma", "wbs", "work breakdown", "earned value", "evm", "stakeholder", "alcance", "scope", "riesgo", "risk", "calidad", "quality", "comunicacion", "procurement", "adquisiciones", "integracion", "integration", "rfp", "rfi", "sow", "statement of work", "charter", "acta constitutiva", "sprint", "backlog", "user story", "historia usuario", "epic", "release plan", "pi planning", "safe", "devops", "jira", "confluence", "ms project", "smartsheet", "asana", "trello", "monday", "notion", "pmi", "certificacion pm", "capm", "pmi-acp", "pmi-rmp", "pmi-sp", "program management", "portfolio management", "pmo", "project office", "direccion proyectos", "liderazgo proyectos", "team leader", "facilitacion", "retrospective", "retro", "daily standup", "stand-up", "review", "demo", "planning poker", "estimacion", "story points", "velocity", "burn down", "burn up", "cfd", "cumulative flow", "okr", "objetivos", "kpi", "metricas proyecto", "control cambios", "change control", "baseline", "linea base", "lecciones aprendidas", "lessons learned", "closure", "cierre", "handover", "transicion", "post-mortem", "plantilla proyecto", "template project", "project template", "kickoff", "inicio proyecto", "fase", "phase", "gate", "etapa", "milestone", "hito", "dependencia", "dependency", "critical path", "ruta critica", "float", "holgura", "resource leveling", "nivelacion recursos", "fast tracking", "crashing", "gestion tiempo", "time management", "cost management", "gestion costos", "budget proyecto", "presupuesto proyecto"],
+      "mime_types": ["application/pdf", "application/vnd.openxmlformats-officedocument.presentationml.presentation"],
+      "subcategories": {
+        "Certificaciones": ["pmp", "capm", "prince2", "pmi", "certificacion", "certification", "exam", "examen", "simulador", "prep"],
+        "Metodologias_Agiles": ["agile", "scrum", "kanban", "lean", "xp", "extreme programming", "safe", " Spotify", "squads", "tribes", "feature team"],
+        "Herramientas_PM": ["jira", "confluence", "ms project", "smartsheet", "asana", "trello", "monday", "notion", "clickup", "wrike", "clarity", " primavera"],
+        "Plantillas": ["template", "plantilla", "checklist", "lista verificacion", "formato", "formulario", "registro"],
+        "Cursos_Video": ["curso", "course", "tutorial", "masterclass", "workshop", "seminar", "webinar", "clase", "video"]
+      }
+    },
+    "Codigo_Fuente": {
+      "extensions": [".py", ".js", ".ts", ".jsx", ".tsx", ".html", ".css", ".scss", ".sass", ".less", ".java", ".cpp", ".c", ".h", ".hpp", ".go", ".rs", ".rb", ".php", ".swift", ".kt", ".scala", ".r", ".sql", ".sh", ".bat", ".ps1", ".vim", ".lua", ".pl", ".json", ".xml", ".yaml", ".yml", ".toml", ".ini", ".cfg", ".conf", ".gitignore", ".dockerfile", ".gradle", ".maven"],
+      "keywords": ["code", "source", "script", "github", "repo", "repository", "commit", "branch", "merge", "pull request", "issue", "bugfix", "feature", "refactor"],
+      "mime_types": ["text/x-python", "text/javascript", "text/html", "text/css"],
+      "subcategories": {
+        "Python": [".py", "python", "django", "flask", "fastapi", "pandas", "numpy"],
+        "JavaScript": [".js", ".ts", "javascript", "typescript", "react", "vue", "angular", "node"],
+        "Web": [".html", ".css", ".scss", "bootstrap", "tailwind", "sass"],
+        "Mobile": [".swift", ".kt", "ios", "android", "flutter", "react native"],
+        "Data": [".sql", ".r", "database", "etl", "analytics", "bigquery", "spark"]
+      }
+    },
+    "Otros": {
+      "extensions": [".txt", ".md", ".csv", ".tsv", ".log", ".dat", ".db", ".sqlite", ".sqlite3", ".torrent", ".eml", ".msg", ".vcf", ".ics", ".gpx", ".kml", ".dwg", ".dxf", ".stp", ".obj", ".fbx", ".blend", ".max", ".ma", ".mb", ".c4d", ".ttf", ".otf", ".woff", ".woff2", ".eot"],
+      "keywords": ["readme", "changelog", "license", "licencia", "notice", "terms", "instruction", "manual", "guide", "help", "faq", "error", "debug"],
+      "mime_types": ["text/plain", "text/csv"],
+      "subcategories": {
+        "Texto_Plano": [".txt", ".md", ".csv", ".log", "readme", "changelog", "license"],
+        "Fuentes": [".ttf", ".otf", ".woff", ".woff2", "font", "fuente", "typeface"],
+        "3D": [".obj", ".fbx", ".blend", ".max", ".ma", ".mb", ".stl", ".3ds"]
+      }
+    }
+  },
+  "rules": {
+    "ignore_patterns": ["*.tmp", "*.crdownload", "*.part", "*.download", ".DS_Store", "Thumbs.db", "desktop.ini", "~$*"],
+    "ignore_folders": ["Organized", "temp", "tmp", ".git", "node_modules", "__pycache__", ".vscode"],
+    "min_file_size_bytes": 1,
+    "max_file_size_mb": 5000
+  },
+  "options": {
+    "create_month_subfolders": false,
+    "dry_run": false,
+    "use_llm_for_ambiguous": false,
+    "llm_api_key": "",
+    "auto_organize_on_startup": false,
+    "backup_before_move": false
+  }
+}

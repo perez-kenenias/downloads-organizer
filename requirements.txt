@@ -1,0 +1,8 @@
+# No external dependencies needed for basic usage!
+# The organizer works with Python standard library only.
+
+# Optional: For LLM-based classification (if you want AI to classify ambiguous files)
+# openai>=1.0.0
+
+# Optional: For testing
+# pytest>=7.4.0
