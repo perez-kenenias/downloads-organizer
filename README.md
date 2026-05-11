@@ -92,6 +92,10 @@ El agente usa 3 metodos (en orden de prioridad):
 
 3. **Tipo MIME** (fallback)
 
+4. **IA con Ollama** (opcional, cuando los metodos anteriores fallan)
+   - Envia el nombre del archivo a un LLM local para clasificarlo
+   - Requiere tener Ollama instalado y activarlo en `config.json`
+
 Tambien puede aprender de tus correcciones!
 
 ## Instalacion
@@ -211,11 +215,12 @@ Descargas/
      v
   [organizer.py]
      |
-     +-- Lee nombre del archivo
-     |     +-- Busca palabras clave -> Categoria
-     |     +-- Si no, usa extension -> Categoria
-     |     +-- Si no, tipo MIME -> Categoria
-     |     +-- Si no, "Otros"
+      +-- Lee nombre del archivo
+      |     +-- Busca palabras clave -> Categoria
+      |     +-- Si no, usa extension -> Categoria
+      |     +-- Si no, tipo MIME -> Categoria
+      |     +-- Si no y LLM activado, consulta Ollama -> Categoria
+      |     +-- Si no, "Otros"
      |
      +-- Crea carpetas si no existen
      |
@@ -278,6 +283,33 @@ Crea: `Libros/2025-01/`, `Libros/2025-02/`, etc.
   "dry_run": true
 }
 ```
+
+### Clasificacion con IA (Ollama)
+
+Cuando palabras clave, extension y MIME no logran clasificar un archivo, puedes usar un LLM local con Ollama:
+
+**Requisitos:**
+1. Instala Ollama desde https://ollama.com
+2. Descarga un modelo: `ollama pull mistral`
+3. En `config.json` activa:
+```json
+"options": {
+  "use_llm_for_ambiguous": true,
+  "llm_provider": "ollama",
+  "llm_model": "mistral:latest",
+  "llm_ollama_url": "http://localhost:11434"
+}
+```
+4. El agente enviara los nombres de archivo a Ollama y usara su respuesta para clasificar
+
+**Proveedores soportados:**
+- `"ollama"` - local, gratuito, sin API key
+- `"openai"` - requiere `pip install openai` y API key
+
+**Modelos recomendados:**
+- `mistral:latest` (~4.4 GB) - mejor balance velocidad/calidad
+- `phi3:latest` (~2.2 GB) - mas ligero
+- `tinyllama:latest` (~637 MB) - el mas rapido pero menos preciso
 
 ## Automatizar (opcional)
 

@@ -1,0 +1,141 @@
+# =============================================================================
+# .gitignore — Organizer Agent para Descargas
+# =============================================================================
+# Este archivo especifica qué archivos/carpetas NO deben subirse a Git.
+# Está organizado por secciones para facilitar su mantenimiento.
+# =============================================================================
+
+
+# -----------------------------------------------------------------------------
+# 1. PYTHON — Artefactos de ejecución
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.prof
+
+
+# -----------------------------------------------------------------------------
+# 2. ENTORNOS VIRTUALES
+# -----------------------------------------------------------------------------
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+
+
+# -----------------------------------------------------------------------------
+# 3. CONFIGURACIÓN LOCAL Y SECRETOS
+# -----------------------------------------------------------------------------
+# config.json contiene rutas personales y potencialmente llaves de API.
+# Cada usuario debe crearse su propio config.json basado en el README.
+# No debe subirse al repositorio.
+config.json
+
+# Variables de entorno (API keys, tokens, credenciales)
+.env
+.env.*
+!.env.example
+
+
+# -----------------------------------------------------------------------------
+# 4. DATOS GENERADOS EN TIEMPO DE EJECUCIÓN (historiales, logs, cachés)
+# -----------------------------------------------------------------------------
+organizer_history.json
+*.log
+*.db
+*.sqlite
+*.sqlite3
+
+
+# -----------------------------------------------------------------------------
+# 5. SISTEMA OPERATIVO — Archivos del SO
+# -----------------------------------------------------------------------------
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.tmp
+*.temp
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+.directory
+
+
+# -----------------------------------------------------------------------------
+# 6. EDITORES E IDEs
+# -----------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+*.orig
+*.iml
+.project
+.classpath
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+
+# -----------------------------------------------------------------------------
+# 7. ARCHIVOS COMPRIMIDOS Y BINARIOS GRANDES
+# -----------------------------------------------------------------------------
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.bz2
+*.gz
+*.xz
+*.zst
+*.iso
+*.img
+*.exe
+*.msi
+*.dmg
+*.pkg
+*.deb
+*.rpm
+*.appimage
+
+
+# -----------------------------------------------------------------------------
+# 8. RESPALDOS Y ARCHIVOS TEMPORALES
+# -----------------------------------------------------------------------------
+*.bak
+*.backup
+*.old
+*~
+*.tmp
+*.crdownload
+*.part
+*.download
+~$*

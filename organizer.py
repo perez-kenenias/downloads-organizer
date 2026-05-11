@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass, asdict
 import mimetypes
+from llm_classifier import LLMClassifier
 
 @dataclass
 class ClassificationResult:
@@ -26,6 +27,7 @@ class FileClassifier:
         self.config = self._load_config(config_path)
         self.history: List[ClassificationResult] = []
         self._load_history()
+        self.llm = LLMClassifier(self.config.get("options", {}))
         
     def _load_config(self, path: str) -> dict:
         if os.path.exists(path):
@@ -120,6 +122,9 @@ class FileClassifier:
                 "create_month_subfolders": False,
                 "dry_run": False,
                 "use_llm_for_ambiguous": False,
+                "llm_provider": "ollama",
+                "llm_model": "llama3.2",
+                "llm_ollama_url": "http://localhost:11434",
                 "llm_api_key": "",
                 "auto_organize_on_startup": False,
                 "backup_before_move": False
@@ -174,11 +179,16 @@ class FileClassifier:
                 if category:
                     method = "mime"
                 else:
-                    # Default fallback
-                    category = "Otros"
-                    confidence = 0.3
-                    reason = "No matching category found"
-                    method = "default"
+                    # Try LLM classification (if enabled)
+                    category, confidence, reason = self._match_by_llm(name_lower)
+                    if category:
+                        method = "llm"
+                    else:
+                        # Default fallback
+                        category = "Otros"
+                        confidence = 0.3
+                        reason = "No matching category found"
+                        method = "default"
         
         # Determine target folder
         target_folder = self._build_target_path(category, filename)
@@ -297,6 +307,19 @@ class FileClassifier:
                     return cat_name, 0.5, f"MIME type: {mime_type}"
         
         return None, 0, ""
+    
+    def _match_by_llm(self, filename: str) -> Tuple[Optional[str], float, str]:
+        """Match using LLM (Ollama or OpenAI) for ambiguous files."""
+        options = self.config.get("options", {})
+        if not options.get("use_llm_for_ambiguous", False):
+            return None, 0, ""
+
+        categories = self.config.get("categories", {})
+        category_list = list(categories.keys())
+        if not category_list:
+            return None, 0, ""
+
+        return self.llm.classify(filename, category_list)
     
     def _build_target_path(self, category: str, filename: str) -> str:
         """Build the target folder path."""
