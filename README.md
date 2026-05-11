@@ -1,12 +1,13 @@
 # Organizer Agent para Descargas
 
-Un agente de Python que organiza automaticamente tu carpeta de Descargas clasificando archivos por tipo: **Libros**, **Trabajo**, **Infonavit**, **Estudio_PM**, **Documentos Personales**, **Software**, y mas.
+Un agente de Python que organiza automaticamente tu carpeta de Descargas clasificando archivos por tipo: **Libros**, **Trabajo**, **Estudio_PM**, **Documentos Personales**, **Software**, y mas.
 
 ## Inicio rapido (5 minutos)
 
 1. **Instala Python** desde https://python.org/downloads/ (marca "Add Python to PATH")
-2. **Obten tu usuario** abriendo CMD y escribiendo: `echo %USERNAME%`
-3. **Edita config.json** y reemplaza `{USERNAME}` con tu usuario real
+2. **Copia el archivo de configuracion de ejemplo** a tu archivo local:
+   - Copia `config.example.json` y renombralo como `config.json`
+3. **Edita `config.json`** y reemplaza `TU_USUARIO` con tu usuario real de Windows
 4. **Prueba sin mover nada**: `python organizer.py --scan`
 5. **Organiza de verdad**: `python organizer.py`
 
@@ -32,10 +33,6 @@ Downloads/
 │   │   ├── Facturas/
 │   │   ├── Presentaciones/
 │   │   └── Reportes/
-│   ├── Infonavit/
-│   │   ├── Documentos_Oficiales/
-│   │   ├── Estados_de_Cuenta/
-│   │   └── Solicitudes/
 │   ├── Documentos_Personales/
 │   │   ├── Identificacion/
 │   │   ├── Salud/
@@ -82,7 +79,6 @@ El agente usa 3 metodos (en orden de prioridad):
 
 1. **Palabras clave en el nombre** (mas importante)
    - Ejemplo: `reporte_q4_2024.docx` -> Trabajo/Reportes
-   - Ejemplo: `infonavit_estado_cuenta.pdf` -> Infonavit/Estados_de_Cuenta
    - Ejemplo: `python_crash_course.pdf` -> Libros/Programacion
 
 2. **Extension del archivo**
@@ -120,32 +116,28 @@ Si dice "python no se reconoce", reinstala Python y asegurate de marcar "Add Pyt
 - Descarga el ZIP o clona el repositorio
 - Extrae los archivos en una carpeta, por ejemplo: `C:\Users\TU_USUARIO\downloads-organizer`
 
-### Paso 3: Obtener tu nombre de usuario de Windows
+### Paso 3: Crear tu archivo de configuracion
 
-Necesitas tu nombre de usuario para configurar las rutas. Para obtenerlo:
-
-1. Abre CMD o PowerShell
-2. Escribe: `echo %USERNAME%`
-3. Copia el nombre que aparece (ejemplo: `UserOne`)
-
-### Paso 4: Configurar las rutas
-
-1. Abre el archivo `config.json` con cualquier editor de texto (Notepad, VS Code, etc.)
-2. Busca las lineas 2 y 3:
+1. Copia el archivo de ejemplo `config.example.json` y renombralo como `config.json`
+2. Obten tu nombre de usuario de Windows (abre CMD o PowerShell y escribe: `echo %USERNAME%`)
+3. Abre el archivo `config.json` con cualquier editor de texto (Notepad, VS Code, etc.)
+4. Busca las lineas con `TU_USUARIO` y reemplazalo con tu nombre de usuario real:
    ```json
-   "source_folder": "C:/Users/{USERNAME}/Downloads",
-   "target_base_folder": "C:/Users/{USERNAME}/Downloads/Organized"
+   "source_folder": "C:/Users/TU_USUARIO/Downloads",
+   "target_base_folder": "C:/Users/TU_USUARIO/Downloads/Organized"
    ```
-3. Reemplaza `{USERNAME}` con tu nombre de usuario real. Ejemplo:
+   Ejemplo si tu usuario es `UserOne`:
    ```json
    "source_folder": "C:/Users/UserOne/Downloads",
    "target_base_folder": "C:/Users/UserOne/Downloads/Organized"
    ```
-4. Guarda el archivo
+5. Guarda el archivo
+
+> **Importante:** El archivo `config.json` es local y NO se sube a GitHub (esta en `.gitignore`). Esto protege tus rutas personales y cualquier API key que configures. Si necesitas compartir tu configuracion, usa `config.example.json` como plantilla.
 
 **Nota:** Usa slashes `/` en lugar de backslashes `\` en las rutas.
 
-### Paso 5: (Opcional) Personalizar categorias
+### Paso 4: (Opcional) Personalizar categorias
 
 El archivo `config.json` ya viene con categorias predefinidas. Puedes:
 - Agregar mas palabras clave a cualquier categoria
@@ -238,7 +230,6 @@ Descargas/
 | `scrum_master_guide.pdf` | keyword "scrum" | Estudio_PM/Metodologias_Agiles |
 | `jira_workflow_template.xlsx` | keyword "jira" | Estudio_PM/Herramientas_PM |
 | `clean_code.pdf` | keyword "code" + ext .pdf | Libros/Programacion |
-| `infonavit_subcuenta_2024.pdf` | keyword "infonavit" | Infonavit |
 | `recibo_luz_enero.pdf` | keyword "recibo luz" | Documentos_Personales/Servicios |
 | `setup_visual_studio.exe` | keyword "visual studio" | Software/Desarrollo |
 | `avatar.png` | keyword "avatar" | Imagenes |
@@ -343,6 +334,8 @@ El agente guarda todo lo que hace en `organizer_history.json`. Puedes revisarlo 
 - A donde lo movio
 - Por que lo clasifico asi
 - Cuando lo hizo
+
+> **Importante:** `organizer_history.json` es local y NO se sube a GitHub (esta en `.gitignore`). Contiene rutas personales de tu PC. Para referencia del formato, consulta `organizer_history.example.json`.
 
 ## Categoria especial: Estudio de Project Management (PM)
 

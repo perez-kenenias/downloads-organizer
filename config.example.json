@@ -1,0 +1,120 @@
+{
+  "source_folder": "C:/Users/TU_USUARIO/Downloads",
+  "target_base_folder": "C:/Users/TU_USUARIO/Downloads/Organized",
+  "categories": {
+    "Libros": {
+      "extensions": [".pdf", ".epub", ".mobi", ".azw3", ".djvu", ".fb2", ".cbz", ".cbr"],
+      "keywords": ["libro", "book", "ebook", "novela", "autor", "editorial", "capitulo", "chapter", "bestseller", "saga", "trilogia"],
+      "mime_types": ["application/pdf", "application/epub+zip", "application/x-mobipocket-ebook"],
+      "subcategories": {
+        "Programacion": ["programming", "python", "javascript", "java", "golang", "rust", "coding", "desarrollo", "developer", "clean code", "algorithms"],
+        "Negocios": ["negocio", "business", "marketing", "finanzas", "emprendimiento", "ventas", "startup", "lean", "agile", "scrum"],
+        "Ficcion": ["novela", "ficcion", "fantasia", "ciencia ficcion", "thriller", "romance", "misterio", "horror", "aventura"],
+        "Autoayuda": ["autoayuda", "productividad", "habitos", "motivacion", "crecimiento personal", "mindfulness", "meditacion", "psicologia"],
+        "Educacion": ["textbook", "manual", "guia", "guide", "curso", "aprende", "tutorial", "academia", "universidad", "escuela"]
+      }
+    },
+    "Trabajo": {
+      "extensions": [".docx", ".doc", ".xlsx", ".xls", ".pptx", ".ppt", ".odt", ".ods", ".odp", ".rtf"],
+      "keywords": ["reporte", "report", "reunion", "meeting", "proyecto", "project", "cliente", "client", "propuesta", "proposal", "cotizacion", "invoice", "factura", "presentacion", "presentation"],
+      "mime_types": ["application/vnd.openxmlformats-officedocument", "application/msword", "application/vnd.ms-excel"],
+      "subcategories": {
+        "Contratos": ["contrato", "contract", "agreement", "convenio", "terminos"],
+        "Facturas": ["factura", "invoice", "recibo", "payment", "comprobante", "cfdi"],
+        "Presentaciones": ["presentacion", "presentation", "pitch", "slide", "powerpoint"],
+        "Reportes": ["reporte", "report", "analisis", "analysis", "estudio", "study"]
+      }
+    },
+    "Documentos_Personales": {
+      "extensions": [".pdf", ".jpg", ".jpeg", ".png", ".docx", ".tiff"],
+      "keywords": ["ine", "curp", "rfc", "pasaporte", "licencia", "acta", "nacimiento", "comprobante", "domicilio", "recibo", "banco", "factura personal"],
+      "mime_types": [],
+      "subcategories": {
+        "Identificacion": ["ine", "curp", "rfc", "pasaporte", "licencia", "credencial", "identificacion", "visa"],
+        "Salud": ["receta", "analisis", "laboratorio", "estudio medico", "radiografia", "receta medica"],
+        "Servicios": ["recibo luz", "recibo agua", "recibo gas", "telefono", "internet", "tenencia"],
+        "Bancarios": ["estado de cuenta", "banco", "deposito", "transferencia", "spei"],
+        "Escolares": ["titulo", "cedula", "diploma", "certificado", "boleta", "calificaciones"]
+      }
+    },
+    "Software": {
+      "extensions": [".exe", ".msi", ".dmg", ".pkg", ".deb", ".rpm", ".appimage", ".jar"],
+      "keywords": ["setup", "installer", "install", "portable", "software", "programa", "app", "application", "driver"],
+      "mime_types": ["application/x-msdownload", "application/x-executable", "application/x-apple-diskimage"],
+      "subcategories": {
+        "Desarrollo": ["visual studio", "vscode", "intellij", "pycharm", "eclipse", "git", "github", "docker", "nodejs", "python", "jdk", "sdk"],
+        "Oficina": ["office", "libreoffice", "adobe acrobat", "foxit"],
+        "Multimedia": ["vlc", "media player", "spotify", "itunes", "obs", "ffmpeg"],
+        "Seguridad": ["antivirus", "vpn", "firewall", "malwarebytes"],
+        "Utilidades": ["winrar", "7zip", "peazip", "ccleaner", "everything", "putty", "filezilla"]
+      }
+    },
+    "Multimedia": {
+      "extensions": [".mp4", ".avi", ".mkv", ".mov", ".wmv", ".flv", ".webm", ".mp3", ".wav", ".flac", ".aac", ".ogg", ".wma", ".m4a"],
+      "keywords": ["video", "audio", "musica", "movie", "pelicula", "cancion", "song", "album", "podcast", "tutorial", "curso"],
+      "mime_types": ["video/", "audio/"],
+      "subcategories": {
+        "Peliculas": ["pelicula", "movie", "film", "cinema", "hdtv", "bluray", "dvdrip", "webdl", "4k", "1080p", "720p"],
+        "Series": ["serie", "season", "temporada", "episode", "episodio", "tv show"],
+        "Musica": ["musica", "music", "album", "single", "ep", "compilation", "mixtape", "playlist"],
+        "Cursos_Video": ["curso", "tutorial", "course", "lesson", "clase", "masterclass", "workshop"],
+        "Podcasts": ["podcast", "episode", "show", "radio", "interview"]
+      }
+    },
+    "Imagenes": {
+      "extensions": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg", ".webp", ".ico", ".psd", ".heic", ".tiff"],
+      "keywords": ["imagen", "image", "foto", "photo", "screenshot", "captura", "wallpaper", "fondo", "icono", "logo", "diseno"],
+      "mime_types": ["image/"],
+      "subcategories": {
+        "Screenshots": ["screenshot", "captura", "screencapture", "snip", "screen"],
+        "Fotos": ["foto", "photo", "pic", "image", "img", "camara", "camera"],
+        "Diseño": ["design", "diseno", "logo", "banner", "mockup", "wireframe", "prototype"],
+        "Wallpapers": ["wallpaper", "fondo", "background", "desktop", "pantalla"]
+      }
+    },
+    "Comprimidos": {
+      "extensions": [".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".xz", ".lz", ".zst"],
+      "keywords": ["compressed", "backup", "respaldo", "archive", "compressed data"],
+      "mime_types": ["application/zip", "application/x-rar", "application/x-7z-compressed"],
+      "subcategories": {}
+    },
+    "Codigo_Fuente": {
+      "extensions": [".py", ".js", ".ts", ".jsx", ".tsx", ".html", ".css", ".scss", ".java", ".cpp", ".c", ".go", ".rs", ".rb", ".php", ".swift", ".kt", ".sql", ".sh", ".bat", ".json", ".xml", ".yaml", ".yml", ".toml"],
+      "keywords": ["code", "source", "script", "github", "repo", "repository", "commit", "branch", "merge", "pull request"],
+      "mime_types": ["text/x-python", "text/javascript", "text/html", "text/css"],
+      "subcategories": {
+        "Python": [".py", "python", "django", "flask", "fastapi", "pandas", "numpy"],
+        "JavaScript": [".js", ".ts", "javascript", "typescript", "react", "vue", "angular", "node"],
+        "Web": [".html", ".css", ".scss", "bootstrap", "tailwind", "sass"],
+        "Data": [".sql", ".r", "database", "etl", "analytics", "bigquery", "spark"]
+      }
+    },
+    "Otros": {
+      "extensions": [".txt", ".md", ".csv", ".tsv", ".log", ".dat", ".db", ".sqlite", ".torrent", ".eml", ".msg", ".ttf", ".otf"],
+      "keywords": ["readme", "changelog", "license", "licencia", "notice", "terms", "instruction", "manual", "guide", "help", "faq"],
+      "mime_types": ["text/plain", "text/csv"],
+      "subcategories": {
+        "Texto_Plano": [".txt", ".md", ".csv", ".log", "readme", "changelog", "license"],
+        "Fuentes": [".ttf", ".otf", ".woff", ".woff2", "font", "fuente", "typeface"],
+        "3D": [".obj", ".fbx", ".blend", ".max", ".ma", ".mb", ".stl", ".3ds"]
+      }
+    }
+  },
+  "rules": {
+    "ignore_patterns": ["*.tmp", "*.crdownload", "*.part", "*.download", ".DS_Store", "Thumbs.db", "desktop.ini", "~$*"],
+    "ignore_folders": ["Organized", "temp", "tmp", ".git", "node_modules", "__pycache__", ".vscode"],
+    "min_file_size_bytes": 1,
+    "max_file_size_mb": 5000
+  },
+  "options": {
+    "create_month_subfolders": false,
+    "dry_run": false,
+    "use_llm_for_ambiguous": true,
+    "llm_provider": "ollama",
+    "llm_model": "mistral:latest",
+    "llm_ollama_url": "http://localhost:11434",
+    "llm_api_key": "",
+    "auto_organize_on_startup": false,
+    "backup_before_move": false
+  }
+}

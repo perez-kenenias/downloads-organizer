@@ -44,6 +44,9 @@ env.bak/
 # No debe subirse al repositorio.
 config.json
 
+# Las versiones de ejemplo SÍ se suben para que otros sepan cómo configurar
+!config.example.json
+
 # Variables de entorno (API keys, tokens, credenciales)
 .env
 .env.*
@@ -54,6 +57,10 @@ config.json
 # 4. DATOS GENERADOS EN TIEMPO DE EJECUCIÓN (historiales, logs, cachés)
 # -----------------------------------------------------------------------------
 organizer_history.json
+
+# La versión de ejemplo SÍ se sube como referencia de formato
+!organizer_history.example.json
+
 *.log
 *.db
 *.sqlite

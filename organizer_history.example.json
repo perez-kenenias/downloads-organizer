@@ -1,0 +1,52 @@
+[
+  {
+    "filename": "reporte_q4_2024.docx",
+    "source_path": "C:/Users/TU_USUARIO/Downloads/reporte_q4_2024.docx",
+    "target_folder": "C:/Users/TU_USUARIO/Downloads/Organized/Trabajo/Reportes",
+    "category": "Trabajo/Reportes",
+    "method": "keyword",
+    "confidence": 0.95,
+    "reason": "Keyword match: 'reporte' + subcategory 'Reportes'",
+    "timestamp": "2026-05-10T09:30:00.000000"
+  },
+  {
+    "filename": "python_crash_course.pdf",
+    "source_path": "C:/Users/TU_USUARIO/Downloads/python_crash_course.pdf",
+    "target_folder": "C:/Users/TU_USUARIO/Downloads/Organized/Libros/Programacion",
+    "category": "Libros/Programacion",
+    "method": "keyword",
+    "confidence": 0.95,
+    "reason": "Keyword match: 'python' + subcategory 'Programacion'",
+    "timestamp": "2026-05-10T09:30:05.000000"
+  },
+  {
+    "filename": "setup_vlc_3.0.20.exe",
+    "source_path": "C:/Users/TU_USUARIO/Downloads/setup_vlc_3.0.20.exe",
+    "target_folder": "C:/Users/TU_USUARIO/Downloads/Organized/Software/Multimedia",
+    "category": "Software/Multimedia",
+    "method": "keyword",
+    "confidence": 0.90,
+    "reason": "Extension .exe + keyword 'vlc' -> subcategory 'Multimedia'",
+    "timestamp": "2026-05-10T09:30:10.000000"
+  },
+  {
+    "filename": "avatar_foto_perfil.png",
+    "source_path": "C:/Users/TU_USUARIO/Downloads/avatar_foto_perfil.png",
+    "target_folder": "C:/Users/TU_USUARIO/Downloads/Organized/Imagenes/Avatares",
+    "category": "Imagenes/Avatares",
+    "method": "keyword",
+    "confidence": 0.85,
+    "reason": "Keyword match: 'avatar' + 'foto' -> Imagenes",
+    "timestamp": "2026-05-10T09:30:15.000000"
+  },
+  {
+    "filename": "documento_sin_nombre.txt",
+    "source_path": "C:/Users/TU_USUARIO/Downloads/documento_sin_nombre.txt",
+    "target_folder": "C:/Users/TU_USUARIO/Downloads/Organized/Otros/Texto_Plano",
+    "category": "Otros/Texto_Plano",
+    "method": "fallback",
+    "confidence": 0.40,
+    "reason": "No keyword match, extension .txt -> Otros/Texto_Plano",
+    "timestamp": "2026-05-10T09:30:20.000000"
+  }
+]
