@@ -1,6 +1,9 @@
 {
-  "source_folder": "C:/Users/TU_USUARIO/Downloads",
-  "target_base_folder": "C:/Users/TU_USUARIO/Downloads/Organized",
+  "source_folders": [
+    "C:/Users/TU_USUARIO/Downloads",
+    "C:/Users/TU_USUARIO/Documents"
+  ],
+  "target_base_folder": "C:/Users/TU_USUARIO/Documents/Organized",
   "categories": {
     "Libros": {
       "extensions": [".pdf", ".epub", ".mobi", ".azw3", ".djvu", ".fb2", ".cbz", ".cbr"],
@@ -113,8 +116,17 @@
     "llm_provider": "ollama",
     "llm_model": "mistral:latest",
     "llm_ollama_url": "http://localhost:11434",
+    "llm_base_url": "",
     "llm_api_key": "",
     "auto_organize_on_startup": false,
-    "backup_before_move": false
+    "backup_before_move": false,
+    "use_content_analysis": true,
+    "detect_duplicates": true,
+    "duplicate_action": "folder",
+    "duplicates_folder": "Duplicados",
+    "hash_max_mb": 500,
+    "smart_rename": false,
+    "review_threshold": 0.5,
+    "watch_interval_seconds": 30
   }
 }

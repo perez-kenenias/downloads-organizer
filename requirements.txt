@@ -4,5 +4,10 @@
 # Optional: For LLM-based classification (if you want AI to classify ambiguous files)
 # openai>=1.0.0
 
+# Optional but recommended: PDF content extraction for smarter classification
+# (files like 'documento(3).pdf' get classified by what's INSIDE them)
+# pip install pypdf
+# pypdf>=4.0.0
+
 # Optional: For testing
 # pytest>=7.4.0

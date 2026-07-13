@@ -75,21 +75,30 @@ Downloads/
 
 ## Como clasifica?
 
-El agente usa 3 metodos (en orden de prioridad):
+El agente usa 5 metodos (en orden de prioridad):
+
+0. **Deteccion de duplicados** (antes de clasificar)
+   - Calcula el hash SHA-256 del archivo; si un archivo con contenido identico
+     ya existe en Organized, lo manda a `Duplicados/` en vez de duplicarlo
 
 1. **Palabras clave en el nombre** (mas importante)
    - Ejemplo: `reporte_q4_2024.docx` -> Trabajo/Reportes
    - Ejemplo: `python_crash_course.pdf` -> Libros/Programacion
 
-2. **Extension del archivo**
+2. **Analisis de contenido** (lee DENTRO del archivo)
+   - Para PDF (requiere `pip install pypdf`), DOCX y archivos de texto
+   - Ejemplo: `documento(3).pdf` cuyo contenido dice "estado de cuenta credito
+     infonavit" -> Infonavit/Estados_de_Cuenta
+   - Resuelve los archivos con nombres genericos (`scan_001.pdf`, `Descarga(4).pdf`)
+
+3. **Extension del archivo**
    - Ejemplo: `.epub`, `.mobi` -> Libros
    - Ejemplo: `.exe`, `.msi` -> Software
-   - Ejemplo: `.mp4`, `.mkv` -> Multimedia
 
-3. **Tipo MIME** (fallback)
+4. **Tipo MIME** (fallback)
 
-4. **IA con Ollama** (opcional, cuando los metodos anteriores fallan)
-   - Envia el nombre del archivo a un LLM local para clasificarlo
+5. **IA con Ollama** (opcional, cuando los metodos anteriores fallan)
+   - Envia el nombre del archivo Y un extracto del contenido a un LLM local
    - Requiere tener Ollama instalado y activarlo en `config.json`
 
 Tambien puede aprender de tus correcciones!
@@ -123,14 +132,20 @@ Si dice "python no se reconoce", reinstala Python y asegurate de marcar "Add Pyt
 3. Abre el archivo `config.json` con cualquier editor de texto (Notepad, VS Code, etc.)
 4. Busca las lineas con `TU_USUARIO` y reemplazalo con tu nombre de usuario real:
    ```json
-   "source_folder": "C:/Users/TU_USUARIO/Downloads",
+   "source_folders": [
+     "C:/Users/TU_USUARIO/Downloads",
+     "C:/Users/TU_USUARIO/Documents"
+   ],
    "target_base_folder": "C:/Users/TU_USUARIO/Downloads/Organized"
    ```
-   Ejemplo si tu usuario es `UserOne`:
-   ```json
-   "source_folder": "C:/Users/UserOne/Downloads",
-   "target_base_folder": "C:/Users/UserOne/Downloads/Organized"
-   ```
+   Puedes vigilar una o varias carpetas (Descargas, Documentos, Escritorio...).
+   Solo se mueven los **archivos sueltos** en la raiz de cada carpeta; las
+   subcarpetas (proyectos, etc.) no se tocan. El formato viejo con
+   `"source_folder"` (una sola carpeta, string) sigue funcionando.
+
+   > **Recomendacion:** pon `target_base_folder` en `Documents/Organized`, no
+   > en Downloads. Documents lo respalda OneDrive por defecto en Windows 11 y
+   > Downloads es zona de transito que cualquiera limpia sin pensar.
 5. Guarda el archivo
 
 > **Importante:** El archivo `config.json` es local y NO se sube a GitHub (esta en `.gitignore`). Esto protege tus rutas personales y cualquier API key que configures. Si necesitas compartir tu configuracion, usa `config.example.json` como plantilla.
@@ -181,11 +196,59 @@ python organizer.py --undo 5
 ```
 Devuelve los ultimos 5 archivos movidos de vuelta a tu carpeta de Descargas. Cambia `5` por el numero que necesites.
 
+### Buscar un archivo organizado (para no perder el hilo!)
+```bash
+python organizer.py --find "estado cuenta"
+python organizer.py --find "recibo cfe"
+```
+Busca en el indice (nombre, nombre original, categoria y razon de clasificacion)
+y te dice exactamente en que carpeta quedo cada archivo y cuando se organizo.
+
+### Reporte de actividad
+```bash
+python organizer.py --report
+python organizer.py --report --report-days 30
+```
+Muestra: total organizado, actividad reciente, cuantos archivos cayeron en "Otros"
+(senal de que faltan reglas), duplicados detectados y clasificaciones de baja
+confianza que conviene revisar.
+
+### Limpiar duplicados acumulados (los famosos (1), (2))
+```bash
+python organizer.py --dedupe --scan     # preview: solo muestra, no mueve
+python organizer.py --dedupe            # ejecuta
+python organizer.py --dedupe --dedupe-sources   # incluye tambien Downloads/Documents
+```
+Escanea todo Organized, agrupa por contenido (SHA-256, no por nombre), conserva
+una copia por grupo (prefiere la indexada, luego la mas antigua, luego el nombre
+mas corto) y mueve el resto a `Duplicados/`. **Nunca borra nada** — revisas esa
+carpeta y la vacias tu cuando estes seguro. Detecta tambien duplicados con
+nombres distintos en carpetas distintas.
+
+Para los duplicados que van llegando dia a dia, la opcion `duplicate_action`
+en config controla que hacer: `"folder"` (default, van a Duplicados/) o
+`"skip"` (se quedan donde estan, solo se reporta).
+
+### Modo revision interactiva
+```bash
+python organizer.py --review
+```
+Los archivos con confianza baja (< 0.5) te preguntan antes de moverse: Enter
+acepta la sugerencia, un numero elige otra categoria (y el agente aprende), `s` lo salta.
+
+### Modo vigilancia (organiza solo, en tiempo real)
+```bash
+python organizer.py --watch
+```
+Se queda corriendo y organiza los archivos nuevos en cuanto terminan de
+descargarse (espera a que el tamano se estabilice). Ctrl+C para detener.
+
 ### Ensenar al agente (cuando se equivoca)
 ```bash
 python organizer.py --correct "archivo_mal_clasificado.pdf" "Trabajo"
 ```
-El agente aprende que archivos similares van en esa categoria. La proxima vez los clasificara correctamente.
+El agente aprende que archivos similares van en esa categoria **y ademas mueve
+el archivo** a la carpeta correcta.
 
 ### Ejecutar con doble clic (mas facil)
 
@@ -294,11 +357,23 @@ Cuando palabras clave, extension y MIME no logran clasificar un archivo, puedes 
 4. El agente enviara los nombres de archivo a Ollama y usara su respuesta para clasificar
 
 **Proveedores soportados:**
-- `"ollama"` - local, gratuito, sin API key
-- `"openai"` - requiere `pip install openai` y API key
+- `"ollama"` - local, gratuito, sin API key. Corre cualquier modelo de Ollama,
+  incluyendo DeepSeek: `ollama pull deepseek-r1:8b` y pon ese nombre en `llm_model`.
+  Los modelos razonadores (deepseek-r1, qwq) funcionan: el agente les limpia el
+  bloque `<think>` automaticamente.
+- `"openai"` - cualquier API compatible con OpenAI (requiere `pip install openai`
+  y API key). Para DeepSeek en la nube:
+  ```json
+  "llm_provider": "openai",
+  "llm_model": "deepseek-chat",
+  "llm_base_url": "https://api.deepseek.com",
+  "llm_api_key": "sk-..."
+  ```
+  Con `llm_base_url` vacio usa OpenAI normal. Tambien sirve para Groq, Together, etc.
 
-**Modelos recomendados:**
+**Modelos recomendados (Ollama local):**
 - `mistral:latest` (~4.4 GB) - mejor balance velocidad/calidad
+- `deepseek-r1:8b` (~5 GB) - razonador, mas preciso en casos ambiguos pero mas lento
 - `phi3:latest` (~2.2 GB) - mas ligero
 - `tinyllama:latest` (~637 MB) - el mas rapido pero menos preciso
 
@@ -369,7 +444,9 @@ Si estudias PM diariamente (como tus 2 horas diarias), el agente ya detecta auto
 
 - Python 3.8 o superior
 - Windows, Mac o Linux
-- **No necesitas instalar nada con pip** - funciona solo con la libreria estandar de Python
+- **No necesitas instalar nada con pip** para el uso basico - funciona con la libreria estandar
+- Recomendado: `pip install pypdf` para que el analisis de contenido lea PDFs
+  (DOCX y archivos de texto funcionan sin instalar nada)
 
 ## Licencia
 
